@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         addMessage(userMessage, "user");
 
         // Send request to Flask API
-        fetch("/chat", {
+        fetch("https://chatbot-complete.onrender.com/chat", { // ✅ Correct API URL
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: userMessage })
