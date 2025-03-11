@@ -43,20 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(response => response.json())
         .then(data => {
-            // ✅ Remove "Typing..." message before displaying response
-            if (chatBox.contains(botTyping)) {
-                chatBox.removeChild(botTyping);
-            }
-
-            // ✅ Handle empty or invalid responses
-            const botResponse = data.response?.trim() || "⚠️ No valid response received.";
-            addMessage(botResponse, "bot");
+            chatBox.removeChild(botTyping); // ✅ Remove "Typing..." message
+            addMessage(data.response || "⚠️ No response received.", "bot");
         })
         .catch(error => {
             console.error("❌ ERROR:", error);
-            if (chatBox.contains(botTyping)) {
-                chatBox.removeChild(botTyping);
-            }
+            chatBox.removeChild(botTyping);
             addMessage("⚠️ Error: Chatbot is not responding.", "bot");
         });
 
