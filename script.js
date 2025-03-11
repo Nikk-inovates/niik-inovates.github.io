@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         addMessage(userMessage, "user");
 
-        fetch("https://chatbot-complete.onrender.com/chat", {  // ✅ Ensure this route exists
+        fetch("https://chatbot-complete.onrender.com", {  // ✅ Ensure this route exists
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: userMessage })
